@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5030706338B65B323340082 /* Pods_Rain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3300F5E778CC4BB299A41FC /* Pods_Rain.framework */; };
 		FA32717D1EA036650093ECC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32717C1EA036650093ECC8 /* AppDelegate.swift */; };
 		FA32717F1EA036650093ECC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32717E1EA036650093ECC8 /* ViewController.swift */; };
 		FA3271821EA036650093ECC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3271801EA036650093ECC8 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A39791547948C74AA37AE9E /* Pods-Rain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rain/Pods-Rain.debug.xcconfig"; sourceTree = "<group>"; };
+		A953B9095B00A31412F6B539 /* Pods-Rain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rain/Pods-Rain.release.xcconfig"; sourceTree = "<group>"; };
+		E3300F5E778CC4BB299A41FC /* Pods_Rain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3271791EA036650093ECC8 /* Rain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA32717C1EA036650093ECC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA32717E1EA036650093ECC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5030706338B65B323340082 /* Pods_Rain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89BA5D9BB4CAAB6BE3E00BB3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A39791547948C74AA37AE9E /* Pods-Rain.debug.xcconfig */,
+				A953B9095B00A31412F6B539 /* Pods-Rain.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E0F4BB58E5C3BEC4031AAD61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3300F5E778CC4BB299A41FC /* Pods_Rain.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA3271701EA036650093ECC8 = {
 			isa = PBXGroup;
 			children = (
 				FA32717B1EA036650093ECC8 /* Rain */,
 				FA32717A1EA036650093ECC8 /* Products */,
+				89BA5D9BB4CAAB6BE3E00BB3 /* Pods */,
+				E0F4BB58E5C3BEC4031AAD61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA32718B1EA036650093ECC8 /* Build configuration list for PBXNativeTarget "Rain" */;
 			buildPhases = (
+				4CDDA46712451588F70BFE5A /* [CP] Check Pods Manifest.lock */,
 				FA3271751EA036650093ECC8 /* Sources */,
 				FA3271761EA036650093ECC8 /* Frameworks */,
 				FA3271771EA036650093ECC8 /* Resources */,
+				09673C82EB67B5CAEAEF4933 /* [CP] Embed Pods Frameworks */,
+				E26E037C303080CD8927D364 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09673C82EB67B5CAEAEF4933 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rain/Pods-Rain-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CDDA46712451588F70BFE5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E26E037C303080CD8927D364 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rain/Pods-Rain-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA3271751EA036650093ECC8 /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		FA32718C1EA036650093ECC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A39791547948C74AA37AE9E /* Pods-Rain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W8AVFZS4RL;
@@ -272,6 +348,7 @@
 		};
 		FA32718D1EA036650093ECC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A953B9095B00A31412F6B539 /* Pods-Rain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = W8AVFZS4RL;
