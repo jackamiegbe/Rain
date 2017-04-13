@@ -120,6 +120,9 @@
                             <constraint firstItem="sZU-jN-RNz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="p5x-W0-x9X"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentWeatherImage" destination="Dvt-24-olP" id="ixK-6r-61C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
