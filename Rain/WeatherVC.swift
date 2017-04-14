@@ -55,6 +55,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         self.forecasts.append(forecast)
                         print(obj)
                     }
+                    self.forecasts.remove(at: 0)
+                    self.tableView.reloadData()
                 }
             }
             completed()
@@ -66,12 +68,22 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return forecasts.count
     }
     //when dequeueReusableCell is called it looks for a cell with identifier "weatherCell" which you name cell at story board identifier of table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
-        return cell
+        
+        //Cast as? WeatherCell so this table pulls info from there
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as? WeatherCell {
+            
+            //index path for each cell it pulls out data per row
+            let forecast = forecasts[indexPath.row]
+            cell.configureCell(forecast: forecast)
+            return cell
+        } else {
+            //return WeatherCell() just incase for some reason app doesn't load so it don't crash
+            return WeatherCell()
+        }
     }
     
     //update UI
