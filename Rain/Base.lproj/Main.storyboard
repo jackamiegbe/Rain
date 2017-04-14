@@ -63,7 +63,7 @@
                                 <rect key="frame" x="0.0" y="309" width="375" height="358"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="eFg-2B-PDu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="eFg-2B-PDu">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eFg-2B-PDu" id="bcr-iV-KZL">
@@ -121,7 +121,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentWeatherImage" destination="Dvt-24-olP" id="ixK-6r-61C"/>
+                        <outlet property="currentTempLabel" destination="5Vn-ZE-VxO" id="Aqi-yG-1SB"/>
+                        <outlet property="currentWeatherImage" destination="Dvt-24-olP" id="230-xA-iWG"/>
+                        <outlet property="currentWeatherTypeLabel" destination="e16-zt-MkW" id="urv-SN-Qfr"/>
+                        <outlet property="dateLabel" destination="qCn-VO-JKt" id="fiU-fF-cx5"/>
+                        <outlet property="locationLabel" destination="nme-Dl-R8n" id="TmZ-mL-Z3P"/>
+                        <outlet property="tableView" destination="sZU-jN-RNz" id="w4q-It-Gwm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
