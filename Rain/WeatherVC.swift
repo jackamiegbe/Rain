@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,7 +19,11 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     //to create a generic/empty class of weather
+    //instance of forecast
+    //for the for loop in obj
     var currentWeather: CurrentWeather!
+    var forecast: Forecast!
+    var forecasts = [Forecast]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +32,38 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+        //the () are empty classes so we can use em
         currentWeather = CurrentWeather()
+        //forecast = Forecast()
         currentWeather.downloadWeatherDetails {
-            //setup UI to download weather data 
-            self.updateMainUI()
+            self.downloadForecastData {
+                //setup UI to download weather data
+                self.updateMainUI()
+            }
         }
     }
     
+    func downloadForecastData(completed: @escaping DownloadComplete) {
+        //Downloading forecast weather data for TableView
+        Alamofire.request(FORECAST_URL).responseJSON { response in
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    
+                    for obj in list {
+                        let forecast = Forecast(weatherDict: obj)
+                        self.forecasts.append(forecast)
+                        print(obj)
+                    }
+                    //self.forecasts.remove(at: 0)
+                    //self.tableView.reloadData()
+                }
+            }
+            completed()
+        }
+    }
     
     //these 3 functions are the requirements/methods for a table view. in inherits from UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
