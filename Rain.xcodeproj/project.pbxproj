@@ -87,9 +87,9 @@
 				FA3271801EA036650093ECC8 /* Main.storyboard */,
 				FA3271831EA036650093ECC8 /* Assets.xcassets */,
 				FA3271851EA036650093ECC8 /* LaunchScreen.storyboard */,
-				FA3271881EA036650093ECC8 /* Info.plist */,
 				FAA57D981EA04D87003B8AA1 /* Constants.swift */,
 				FAA57D9A1EA04E42003B8AA1 /* CurrentWeather.swift */,
+				FA3271881EA036650093ECC8 /* Info.plist */,
 			);
 			path = Rain;
 			sourceTree = "<group>";

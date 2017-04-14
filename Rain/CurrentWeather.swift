@@ -51,6 +51,17 @@ class CurrentWeather {
         }
         return _currentTemp
     }
+    
+    //we need to have a func that will download data and set values to work the way thier supposed to
+    func downloadWeatherDetails(completed: @escaping DownloadComplete) {
+        //Download Current Weather Data
+        let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
+        Alamofire.request(currentWeatherURL).responseJSON { response in
+            let result = response.result
+            print(response)
+        }
+        completed()
+    }
 }
 
 
