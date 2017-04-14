@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 import Alamofire
 
-class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
@@ -17,6 +18,11 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var currentWeatherImage: UIImageView!
     @IBOutlet weak var currentWeatherTypeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    //to keep track and update location
+    let locationManager = CLLocationManager()
+    //store current location
+    var currentLocation: CLLocation!
     
     //to create a generic/empty class of weather
     var currentWeather: CurrentWeather!
@@ -31,6 +37,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //telling the tableview where all the data will come from
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //location delegation
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startMonitoringSignificantLocationChanges()
         
         //the () are empty classes so we can use em
         currentWeather = CurrentWeather()

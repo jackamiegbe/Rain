@@ -17,6 +17,7 @@
 		FAA57D991EA04D87003B8AA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA57D981EA04D87003B8AA1 /* Constants.swift */; };
 		FAA57D9B1EA04E42003B8AA1 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA57D9A1EA04E42003B8AA1 /* CurrentWeather.swift */; };
 		FACCDD8D1EA16B7C00787BA1 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCDD8C1EA16B7C00787BA1 /* WeatherCell.swift */; };
+		FACCDD8F1EA1711E00787BA1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCDD8E1EA1711E00787BA1 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FAA57D981EA04D87003B8AA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAA57D9A1EA04E42003B8AA1 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		FACCDD8C1EA16B7C00787BA1 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		FACCDD8E1EA1711E00787BA1 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				FA3271881EA036650093ECC8 /* Info.plist */,
 				FA68786C1EA131CB00F05E94 /* Forecast.swift */,
 				FACCDD8C1EA16B7C00787BA1 /* WeatherCell.swift */,
+				FACCDD8E1EA1711E00787BA1 /* Location.swift */,
 			);
 			path = Rain;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				FAA57D9B1EA04E42003B8AA1 /* CurrentWeather.swift in Sources */,
 				FAA57D991EA04D87003B8AA1 /* Constants.swift in Sources */,
 				FA68786D1EA131CB00F05E94 /* Forecast.swift in Sources */,
+				FACCDD8F1EA1711E00787BA1 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
