@@ -57,8 +57,8 @@ class CurrentWeather {
         //Download Current Weather Data
         let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
         Alamofire.request(currentWeatherURL).responseJSON { response in
-            
             let result = response.result
+            print(response)
             
             //we are ready from a dictioanry we aren't certain of values so us as? Dictionary<String, AnyObject>
             if let dict = result.value as? Dictionary<String, AnyObject> {
@@ -66,7 +66,6 @@ class CurrentWeather {
                 //if you look at the json file you see "name" is in 1st layer dictionary
                 if let name = dict["name"] as? String {
                     self._cityName = name.capitalized
-                    //the reason we are using self.value is becasue we are within closures
                     print(self._cityName)
                 }
                 //however with weather its within a dictionary in a dictionary so as? [Dictionary<String, AnyObject>]
@@ -75,6 +74,7 @@ class CurrentWeather {
                     //6:45
                     if let main = weather[0]["main"] as? String {
                         self._weatherType = main.capitalized
+                        //the reason we are using self.value is becasue we are within closures
                         print(self._weatherType)
                     }
                 }
