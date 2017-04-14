@@ -34,24 +34,39 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //telling the tableview where all the data will come from
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         //location delegation
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
         
+        //telling the tableview where all the data will come from
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         //the () are empty classes so we can use em
         currentWeather = CurrentWeather()
-        //forecast = Forecast()
-        currentWeather.downloadWeatherDetails {
-            self.downloadForecastData {
-                //setup UI to download weather data
-                self.updateMainUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationAuthStatus()
+    }
+    
+    func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            currentLocation = locationManager.location
+            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            currentWeather.downloadWeatherDetails {
+                self.downloadForecastData {
+                    //setup UI to download weather data
+                    self.updateMainUI()
+                }
             }
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+            locationAuthStatus()
         }
     }
     
