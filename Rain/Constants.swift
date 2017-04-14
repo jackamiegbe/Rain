@@ -17,10 +17,6 @@ let API_KEY = "dd2101764d1f724ecedb6e5c34ac3790"
 //this will tell our func when we are done downloading data 
 typealias DownloadComplete = () -> ()
 
-//let CURRENT_WEATHER_URL = "\(BASE_URL)\(LATITUDE)-33.87\(LONGITUDE)121.9\(APP_ID)\(API_KEY)"
-//
-//let FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=-33.87&lon=129&cnt=10&appid=dd2101764d1f724ecedb6e5c34ac3790"
-
 let CURRENT_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?lat=\(Location.sharedInstance.latitude!)&lon=\(Location.sharedInstance.longitude!)&appid=dd2101764d1f724ecedb6e5c34ac3790"
 
 let FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=\(Location.sharedInstance.latitude!)&lon=\(Location.sharedInstance.longitude!)&cnt=10&mode=json&appid=dd2101764d1f724ecedb6e5c34ac3790"
