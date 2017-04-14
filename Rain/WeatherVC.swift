@@ -19,10 +19,10 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     //to create a generic/empty class of weather
-    //instance of forecast
-    //for the for loop in obj
     var currentWeather: CurrentWeather!
+    //instance of forecast
     var forecast: Forecast!
+    //for the for loop in obj
     var forecasts = [Forecast]()
     
     override func viewDidLoad() {
